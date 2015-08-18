@@ -8,13 +8,16 @@ oauth_endpoints("yahoo")
 # 2. Register an application at https://developer.apps.yahoo.com/projects
 #    Replace key and secret below.
 myapp <- oauth_app("yahoo",
-                   key = "dj0yJmk9ZEp0d2J2MFRuakNQJmQ9WVdrOU0zaHRUMlJpTTJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00Nw--",
-                   secret = "82f339a41f71a3b4d9b840be427dde132e36d115"
+                   key = "dj0yJmk9ODdBTHJMM3Z4SElJJmQ9WVdrOVl6RldTSFY2TjJzbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0yOA--",
+                   secret = "c74de3eea4346d8057029942b685e9678cdae89d"
 )
+key = "dj0yJmk9ODdBTHJMM3Z4SElJJmQ9WVdrOVl6RldTSFY2TjJzbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0yOA--"
+secret = "c74de3eea4346d8057029942b685e9678cdae89d"
+# myapp = oauth_app("twitter",
+#                   key="yourConsumerKeyHere",secret="yourConsumerSecretHere")
+# sig = sign_oauth1.0(myapp,
+#                     token = "yourTokenHere",
+#                     token_secret = "yourTokenSecretHere")
 
-myapp = oauth_app("twitter",
-                  key="yourConsumerKeyHere",secret="yourConsumerSecretHere")
-sig = sign_oauth1.0(myapp,
-                    token = "yourTokenHere",
-                    token_secret = "yourTokenSecretHere")
-homeTL = GET("https://api.twitter.com/1.1/statuses/home_timeline.json", sig)
+r = GET("https://api.login.yahoo.com/oauth/v2/get_request_token", authenticate(key, secret))
+r
